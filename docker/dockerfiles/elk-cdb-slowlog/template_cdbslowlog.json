@@ -1,0 +1,69 @@
+{
+	"cdb-slowlog" : {
+		"template": "logstash-*",
+		"settings": {
+			"index.refresh_inteval": "5s",
+			"number_of_shards": 1,
+			"number_of_replicas" : 0
+		},
+		"mappings" : {
+			"slowlog" : {
+				"properties" : {
+					"@version" : {
+						"type" : "string",
+						"index" : "not_analyzed",
+						"doc_values" : true
+					},
+					"autocommit" : {
+						"type" : "boolean",
+						"index" : "not_analyzed"
+					},
+					"host" : {
+						"type" : "string",
+						"index" : "not_analyzed"
+					},
+					"business" : {
+						"type" : "string",
+						"index" : "not_analyzed"
+					},
+					"clientip" : {
+						"type" : "string",
+						"index" : "not_analyzed"
+					},
+					"user" : {
+						"type" : "string",
+						"index" : "not_analyzed"
+					},
+					"fromidc" : {
+						"type" : "string",
+						"index" : "not_analyzed"
+					},
+					"rwsplit" : {
+						"type" : "boolean",
+						"index" : "not_analyzed"
+					},
+					"db" : {
+						"type" : "string",
+						"index" : "not_analyzed"
+					},
+					"mysqlip" : {
+						"type" : "string",
+						"index" : "not_analyzed"
+					},
+					"mysqlport" : {
+						"type" : "integer",
+						"index" : "not_analyzed"
+					},
+					"toidc" : {
+						"type" : "string",
+						"index" : "not_analyzed"
+					},
+					"used" : {
+						"type" : "integer",
+						"index" : "not_analyzed"
+					}
+				}
+			}
+		}
+	}
+}

@@ -16,6 +16,13 @@ RUN apt-get update && \
 # 3. env
 RUN echo "127.0.0.1 herrypc" >> /etc/hosts
 
+RUN mkdir /var/run/mysqld && chown mysql /var/run/mysqld
+RUN echo "#!/bin/bash" >> /run.sh
+RUN echo "/opt/zookeeper/bin/zkServer.sh start" >> /run.sh
+RUN echo "/usr/bin/mysqld_safe" >> /run.sh
+RUN chmod 755 /run.sh
 EXPOSE 3306
 
-CMD ["/usr/bin/mysqld_safe"]
+ENTRYPOINT []
+
+CMD ["/run.sh"]

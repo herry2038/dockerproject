@@ -3,7 +3,7 @@ MAINTAINER Herry 5303802@qq.com
 ENV REFRESHED_AT 2017-05-05
 
 
-
+RUN apt-get install -y --allow-unauthenticated wget
 # 3. Zk
 
 ARG MIRROR=http://apache.mirrors.pair.com
@@ -21,4 +21,4 @@ RUN mkdir -p /opt/zookeeper \
 EXPOSE 2181 2888 3888
 
 ENTRYPOINT ["/opt/zookeeper/bin/zkServer.sh"]
-CMD ["start-foreground]
+CMD ["start-foreground"]
